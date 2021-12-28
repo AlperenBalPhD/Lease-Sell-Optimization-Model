@@ -1,3 +1,6 @@
+*This is the code of reproducing the results of our paper:
+*A simulation-based optimization approach for network design: The Circular Economy perspective
+
 Sets
 C collection centers / Adana,Ankara,Antalya,Bursa,Canakkale,Denizli,Diyarbakir,Elazig,Erzurum,Eskisehir,Istanbul,
                        Izmir,Kayseri,Kocaeli,Konya,Mersin,Samsun,Trabzon,Van,Zonguldak /
@@ -33,25 +36,29 @@ Cfxd2(R) unit cost of openning EoL processing center 2R (annual fixed cost X 12 
 Cfxd3(R) unit cost of openning EoL processing center 3R (annual fixed cost X 12 years)
     / Ankara 29400000,Bursa 34200000,Canakkale 34200000,Diyarbakir 24600000,Eskisehir 29400000,
       Mersin 29400000,Istanbul 44200000,Izmir 34200000,Kayseri 29400000,Kocaeli 34200000,Trabzon 29400000/
-CtspP(P) unit transportation cost of product P / Refrigerator 0.0092 /
-CtspS(Preu) unit transportation cost of reusable product Preu / ReuRefg 0.0092 /
-CtspL(Prmn) unit transportation cost of remanufacturable component Prmn / Cabinet 0.00092, Compressor 0.00132 /
+CtspP(P) unit transportation cost of product P / Refrigerator 0.0102 /
+CtspS(Preu) unit transportation cost of reusable product Preu / ReuRefg 0.0102 /
+CtspL(Prmn) unit transportation cost of remanufacturable component Prmn / Cabinet 0.00102, Compressor 0.00137 /
 CtspV(Prcy) unit transportation cost of recycled material Prcy for one refrigerator
     / FerrousMetal 0.004508, Aluminum 0.000101, Copper 0.000313, Glass 0.000101, Plastic 0.003974, Others 0.000092 /
 CtspD(Pdsp) unit transportation cost of material Pdsp for one refrigerator
     / CircuitBoard 0.000008, CFC 0.000001, Pellet 0.000101 /
+
+*///These values are obtained from simulation of the supply chain///
 Prtn(Z) amount of returned product P at return zone Z
-    / Adana 280591, Adiyaman 38650, Afyonkarahisar 31011, Agri 11873, Aksaray 13700, Amasya 16897, Ankara 444487,
-      Antalya 326132, Ardahan 9964, Artvin 16897, Aydin 65592, Balikesir 110925,Bartin 18848, Batman 58825, Bayburt 4525,
+    / Adana 310591, Adiyaman 39650, Afyonkarahisar 31011, Agri 11873, Aksaray 13700, Amasya 16897, Ankara 444487,
+      Antalya 326132, Ardahan 9964, Artvin 16897, Aydin 64592, Balikesir 110925,Bartin 18848, Batman 58825, Bayburt 4525,
       Bilecik 8967, Bingol 23497, Bitlis 33128, Bolu 19678, Burdur 26818, Bursa 245761, Canakkale 50979, Cankiri 9050,
       Corum 34291, Denizli 59988,Diyarbakir 191420, Duzce 43009, Edirne 39397,Elazig 44586, Erzincan 14489, Erzurum 43009,
-      Eskisehir 48032, Gaziantep 72525, Giresun 37612, Gumushane 7597, Hakkari 6933, Hatay 142724,Igdir 8552, Isparta 28230,
-      Istanbul 1842459, Izmir 272164, Kahramanmaras 41763,Karabuk 19014, Karaman 9715, Kars 12828, Kastamonu 29600,
-      Kayseri 71238, Kirikkale 19221, Kirklareli 38276,Kirsehir 14198, Kilis 8677, Kocaeli 234594, Konya 99965, Kutahya 31509,
+      Eskisehir 48032, Gaziantep 72525, Giresun 37612, Gumushane 7497, Hakkari 6933, Hatay 142724,Igdir 8552, Isparta 28230,
+      Istanbul 1942459, Izmir 272164, Kahramanmaras 41763,Karabuk 19014, Karaman 9715, Kars 15828, Kastamonu 29600,
+      Kayseri 71238, Kirikkale 19221, Kirklareli 38276,Kirsehir 15198, Kilis 8677, Kocaeli 234594, Konya 99965, Kutahya 31509,
       Malatya 48779, Manisa 62520, Mardin 88425,Mersin 164353, Mugla 97267, Mus 32340, Nevsehir 21920, Nigde 14572,
       Ordu 61441,Osmaniye 48198, Rize 30928, Sakarya 101294, Samsun 92119, Siirt 38857, Sinop 13617, Sivas 40144,
-      Sanliurfa 187020, Sirnak 50813, Tekirdag 86972, Tokat 29268,Trabzon 64305, Tunceli 3114, Usak 16108,Van 36906,
+      Sanliurfa 187020, Sirnak 50813, Tekirdag 89972, Tokat 29268,Trabzon 64305, Tunceli 3114, Usak 16108,Van 36906,
       Yalova 41307, Yozgat 25365, Zonguldak 87677 /
+*///---///
+
 REV1(Preu) revenue obtained from reusable product Preu
     / ReuRefg 80 /
 REV2(Prmn) revenue obtained from remanufacturable component or item Prmn
@@ -89,6 +96,8 @@ Ssec2(R) security level at location of EoL recovery center R
       Istanbul 0.09121,Izmir 0.09045,Kayseri 0.09077,Kocaeli 0.09112,Trabzon 0.09128 /
 tprc1(P) required processing time (min) for processing product P in collection center
     / Refrigerator 1.55 /
+
+*///These values are obtained from simulation of the supply chain///
 Qreu(P) percentage of product P for reuse
     / Refrigerator 0.2735 /
 Qrmn(P) percentage of product P for remanufacture
@@ -97,10 +106,12 @@ Qrcy(P) percentage of product P for recycle
     / Refrigerator 0.4387 /
 Qdsp(P) percentage of product P for dispose
     / Refrigerator 0.4387 /
+*///---///
+
 ;
 
 Scalar
-TIV total investment capital / 60000000 /
+TIV total investment capital / 55000000 /
 ;
 
 Table CprcC(P,C) processing cost of product P in collection center C ($ per product)
@@ -533,7 +544,8 @@ Table tprc5(P,Pdsp) required processing time for processing disposable material 
 Refrigerator   23             17    11
 ;
 
-Scalar
+*enter payoff table values below
+Scalar 
 R2 / 86.32079 /
 R3 / 0.0358 /
 e2_1 / 303.081175 /
